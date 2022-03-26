@@ -8,4 +8,9 @@ export class Dirt extends Block
     {
         super(DIRT, level, coordinate);
     }
+
+    isDestructible()
+    {
+        return true;
+    }
 }

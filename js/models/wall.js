@@ -8,4 +8,9 @@ export class Wall extends Block
     {
         super(WALL, level, coordinate);
     }
+
+    isDestructible()
+    {
+        return false;
+    }
 }

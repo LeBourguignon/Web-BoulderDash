@@ -8,4 +8,9 @@ export class Diamond extends Block
     {
         super(DIAMOND, level, coordinate);
     }
+
+    isDestructible()
+    {
+        return true;
+    }
 }

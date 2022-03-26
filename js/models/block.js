@@ -6,6 +6,7 @@ export const DIRT = 'T';
 export const ROCK = 'R';
 export const VOID = 'V';
 export const PLAYER = 'P';
+export const TOMBSTONE = 'E';
 
 export class Block
 {
@@ -26,4 +27,9 @@ export class Block
     get type() { return this.#type; }
     
     get level() { return this.#level; }
+
+    isDestructible()
+    {
+        throw "Redefine the isDestructible method!";
+    }
 }

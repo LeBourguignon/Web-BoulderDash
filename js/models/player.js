@@ -8,4 +8,9 @@ export class Player extends Block
     {
         super(PLAYER, level, coordinate);
     }
+
+    isDestructible()
+    {
+        return false;
+    }
 }

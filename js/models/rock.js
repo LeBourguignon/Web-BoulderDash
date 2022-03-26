@@ -8,4 +8,9 @@ export class Rock extends Block
     {
         super(ROCK, level, coordinate);
     }
+
+    isDestructible()
+    {
+        return false;
+    }
 }

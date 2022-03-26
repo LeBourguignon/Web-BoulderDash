@@ -8,4 +8,9 @@ export class Void extends Block
     {
         super(VOID, level, coordinate);
     }
+
+    isDestructible()
+    {
+        return true;
+    }
 }
