@@ -1,7 +1,7 @@
 export class Observer
 {
-    update()
+    notify()
     {
-        throw "Redefine the update method!";
+        throw "Redefine the notify method!";
     }
 }

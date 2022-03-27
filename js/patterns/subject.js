@@ -15,7 +15,7 @@ export class Subject
     notify()
     {
         this.#observers.forEach((observer) => {
-            observer.update();
+            observer.notify();
         });
     }
 }
