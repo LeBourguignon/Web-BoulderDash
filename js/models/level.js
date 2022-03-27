@@ -155,27 +155,30 @@ export class Level
 
     move(direction)
     {
-        coord = new Coordinate({ x: this.#player.coordinate.x + direction.x, y: this.#player.coordinate.y + direction.y});
-        if(this.#isInGrid(coord))
+        if (direction === UP || direction === LEFT  || direction === DOWN  || direction === RIGHT)
         {
-            if (this.#grid[coord.x][coord.y].isDestructible)
+            coord = new Coordinate({ x: this.#player.coordinate.x + direction.x, y: this.#player.coordinate.y + direction.y});
+            if (this.#isInGrid(coord))
             {
-                if (this.#grid[coord.x][coord.y].type === DIAMOND)
-                    ++this.#collectedDiamond;
+                if (this.#grid[coord.x][coord.y].isDestructible)
+                {
+                    if (this.#grid[coord.x][coord.y].type === DIAMOND)
+                        ++this.#collectedDiamond;
 
-                this.#movePlayer(coord);
-                
-                this.#updateGravity();
-            }
-            else if (this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + direction.x][coord.y + direction.y].type === VOID && (direction === LEFT || direction === RIGHT))
-            {
-                this.#grid[coord.x + direction.x][coord.y + direction.y] = this.#grid[coord.x][coord.y];
-                this.#grid[coord.x + direction.x][coord.y + direction.y].coordinate.x = coord.x + direction.x;
-                this.#grid[coord.x + direction.x][coord.y + direction.y].coordinate.y = coord.y + direction.y;
+                    this.#movePlayer(coord);
+                    
+                    this.#updateGravity();
+                }
+                else if (this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + direction.x][coord.y + direction.y].type === VOID && (direction === LEFT || direction === RIGHT))
+                {
+                    this.#grid[coord.x + direction.x][coord.y + direction.y] = this.#grid[coord.x][coord.y];
+                    this.#grid[coord.x + direction.x][coord.y + direction.y].coordinate.x = coord.x + direction.x;
+                    this.#grid[coord.x + direction.x][coord.y + direction.y].coordinate.y = coord.y + direction.y;
 
-                this.#movePlayer(coord);
+                    this.#movePlayer(coord);
 
-                this.#updateGravity();
+                    this.#updateGravity();
+                }
             }
         }
     }
