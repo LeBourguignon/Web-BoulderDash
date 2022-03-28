@@ -1,6 +1,6 @@
-import { Block, VOID } from "./block";
-import { Coordinate } from "./coordinate";
-import { Level } from "./level";
+import { Block, VOID } from "./block.js";
+import { Coordinate } from "./coordinate.js";
+import { Level } from "./level.js";
 
 export class Void extends Block
 {

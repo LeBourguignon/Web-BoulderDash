@@ -1,4 +1,4 @@
-import { Coordinate } from "./coordinate";
+import { Coordinate } from "./coordinate.js";
 
 export const UP = new Coordinate({ x: 0, y: -1});
 export const LEFT = new Coordinate({ x: -1, y: 0});

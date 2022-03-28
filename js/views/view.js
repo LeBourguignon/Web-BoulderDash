@@ -1,23 +1,25 @@
-import { Observer } from "../patterns/observer";
+import { Observer } from "../patterns/observer.js";
+import { NONE } from "./viewType.js";
 
 export class View extends Observer
 {
-    #controller;
+    _controller;
     _viewType;
 
     constructor(controller)
     {
         super();
 
-        this.#controller = controller;
-        this.#controller.addObserver(this);
+        this._controller = controller;
+        this._controller.addObserver(this);
 
-        this.notify();
+        this._viewType = NONE;
     }
 
     notify()
     {
-        throw "Redefine the notify method!";
+        if (this._controller.currentScreen === this._viewType)
+            this.update();
     }
 
     update()

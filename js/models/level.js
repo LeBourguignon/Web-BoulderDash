@@ -1,5 +1,5 @@
-import { Coordinate } from "./coordinate";
-import { UP, LEFT, DOWN, RIGHT } from "./direction";
+import { Coordinate } from "./coordinate.js";
+import { UP, LEFT, DOWN, RIGHT } from "./direction.js";
 
 import { Wall } from "./wall";
 import { Diamond } from "./diamond";
