@@ -1,14 +1,14 @@
 import { Coordinate } from "./coordinate.js";
 import { UP, LEFT, DOWN, RIGHT } from "./direction.js";
 
-import { Wall } from "./wall";
-import { Diamond } from "./diamond";
-import { Dirt } from "./dirt";
-import { Rock } from "./rock";
-import { Void } from "./void";
-import { Player } from "./player";
-import { Tombstone } from "./tombstone";
-import { DIAMOND, DIRT, PLAYER, ROCK, TOMBSTONE, VOID, WALL } from "./block";
+import { Wall } from "./wall.js";
+import { Diamond } from "./diamond.js";
+import { Dirt } from "./dirt.js";
+import { Rock } from "./rock.js";
+import { Void } from "./void.js";
+import { Player } from "./player.js";
+import { Tombstone } from "./tombstone.js";
+import { DIAMOND, DIRT, PLAYER, ROCK, TOMBSTONE, VOID, WALL } from "./block.js";
 
 export class Level
 {
@@ -25,7 +25,6 @@ export class Level
         this.#collectedDiamond = 0;
         this.#nbMove = 0;
         this.#mapLoading(map);
-        this.#updateGravity();
     }
 
     get grid() { return this.#grid; }
@@ -38,11 +37,11 @@ export class Level
     {
         this.#grid = [];
 
-        for (let i = 0; i < map.lenght; ++i)
+        for (let i = 0; i < map.length; ++i)
         {
             let line = [];
 
-            for (let j = 0; j < map[i].lenght; ++i)
+            for (let j = 0; j < map[i].length; ++j)
             {
                 line.push(null);
             }
@@ -54,9 +53,9 @@ export class Level
     #mapLoading(map)
     {
         this.#initGrid(map);
-        for (let i = 0; i < this.#grid.lenght; ++i)
+        for (let i = 0; i < this.#grid.length; ++i)
         {
-            for (let j = 0; j < this.#grid[i].lenght; ++i)
+            for (let j = 0; j < this.#grid[i].length; ++j)
             {
                 switch(map[i][j])
                 {
@@ -92,11 +91,12 @@ export class Level
                 }
             }
         }
+        this.#updateGravity();
     }
 
     #isInGrid(coordinate)
     {
-        return coordinate.x >= 0 && coordinate.x < this.#grid.lenght && coordinate.y >= 0 && coordinate.y < this.#grid[coordinate.x].lenght;
+        return coordinate.x >= 0 && coordinate.x < this.#grid.length && coordinate.y >= 0 && coordinate.y < this.#grid[coordinate.x].length;
     }
 
     #movePlayer(coord)
@@ -112,9 +112,9 @@ export class Level
 
     #updateGravity()
     {
-        for (let i = 0; i < this.#grid.lenght; ++i)
+        for (let i = 0; i < this.#grid.length; ++i)
         {
-            for (let j = this.#grid[i].lenght; j >= 0; --i)
+            for (let j = this.#grid[i].length; j >= 0; --j)
             {
                 coord = new Coordinate({ x: i, y: j});
                 isMoving = false;
