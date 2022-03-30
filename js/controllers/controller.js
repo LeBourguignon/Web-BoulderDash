@@ -26,7 +26,7 @@ export class Controller extends Subject
     {
         fetch(address).then((res) => res.text()).then((text) => {
             const tab = text.split(/\r\n/m);
-            const map = []
+            const map = [];
             tab.forEach((line, i) => {
                 map.push(line.split(""));
             });

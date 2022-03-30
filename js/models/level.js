@@ -112,42 +112,48 @@ export class Level
 
     #updateGravity()
     {
-        for (let i = 0; i < this.#grid.length; ++i)
+        for (let i = this.#grid.length - 1; i >= 0 ; --i)
         {
-            for (let j = this.#grid[i].length; j >= 0; --j)
+            for (let j = this.#grid[i].length - 1; j >= 0; --j)
             {
+                var coord, isMoving;
                 coord = new Coordinate({ x: i, y: j});
                 isMoving = false;
 
-                while (this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x][coord.y + 1] === VOID)
+                while (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === VOID)
                 {
-                    this.#grid[coord.x][coord.y + 1] = this.#grid[coord.x][coord.y];
-                    this.#grid[coord.x][coord.y + 1].coordinate.y = coord.y + 1;
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = this.#grid[coord.x][coord.y];
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.x = coord.x + DOWN.x;
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.y = coord.y + DOWN.y;
 
                     this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
 
-                    coord.y += 1;
+                    coord.x += DOWN.x;
+                    coord.y += DOWN.y;
                     isMoving = true;
                 }
-
-                if (this.#grid[coord.x][coord.y + 1] === PLAYER && isMoving)
+                
+                if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === PLAYER && isMoving)
                 {
-                    this.#grid[coord.x][coord.y + 1] = new Tombstone(this, new Coordinate({ x: coord.x, y: coord.y + 1}));
-                    this.#player = this.#grid[coord.x][coord.y + 1];
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = new Tombstone(this, new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y}));
+                    this.#player = this.#grid[coord.x + DOWN.x][coord.y + DOWN.y];
                     
                     this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
 
-                    coord.y += 1;
+                    coord.x += DOWN.x;
+                    coord.y += DOWN.y;
                 }
 
-                while (this.#grid[coord.x][coord.y].type === TOMBSTONE && this.#grid[coord.x][coord.y + 1] === VOID)
+                while (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === TOMBSTONE && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === VOID)
                 {
-                    this.#grid[coord.x][coord.y + 1] = this.#grid[coord.x][coord.y];
-                    this.#grid[coord.x][coord.y + 1].coordinate.y = coord.y + 1;
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = this.#grid[coord.x][coord.y];
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.x = coord.x + DOWN.x;
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.y = coord.y + DOWN.y;
 
                     this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
 
-                    coord.y += 1;
+                    coord.x += DOWN.x;
+                    coord.y += DOWN.y;
                 }
             }
         }
