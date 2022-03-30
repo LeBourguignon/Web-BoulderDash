@@ -1,4 +1,3 @@
-import { WALL } from "../models/block.js";
 import { View } from "./view.js";
 import { GAME } from "./viewType.js";
 
