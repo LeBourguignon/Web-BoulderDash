@@ -19,7 +19,6 @@ export class Controller extends Subject
     set currentScreen(value) { this.#currentScreen = value; this.notify(); }
     get currentScreen() { return this.#currentScreen; }
 
-    set level(value) { this.#level = value; }
     get level() { return this.#level; }
 
     addMap(address)
