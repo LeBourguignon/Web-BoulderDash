@@ -102,10 +102,11 @@ export class Level
     #movePlayer(coord)
     {
         this.#grid[coord.x][coord.y] = this.#player;
+        
+        this.#grid[this.#player.coordinate.x][this.#player.coordinate.y] = new Void(this, new Coordinate({ x: this.#player.coordinate.x, y: this.#player.coordinate.y}));
+        
         this.#player.coordinate.x = coord.x;
         this.#player.coordinate.y = coord.y;
-
-        this.#grid[this.#player.coordinate.x][this.#player.coordinate.y] = new Void(this, new Coordinate({ x: this.#player.coordinate.x, y: this.#player.coordinate.y}));
 
         ++this.#nbMove;
     }
@@ -159,14 +160,24 @@ export class Level
         }
     }
 
+    isWin()
+    {
+        return this.#nbDiamond === this.#collectedDiamond;
+    }
+
+    isLoose()
+    {
+        return this.#player.type === TOMBSTONE;
+    }
+
     move(direction)
     {
         if (direction === UP || direction === LEFT  || direction === DOWN  || direction === RIGHT)
         {
-            coord = new Coordinate({ x: this.#player.coordinate.x + direction.x, y: this.#player.coordinate.y + direction.y});
+            const coord = new Coordinate({ x: this.#player.coordinate.x + direction.x, y: this.#player.coordinate.y + direction.y});
             if (this.#isInGrid(coord))
             {
-                if (this.#grid[coord.x][coord.y].isDestructible)
+                if (this.#grid[coord.x][coord.y].isDestructible())
                 {
                     if (this.#grid[coord.x][coord.y].type === DIAMOND)
                         ++this.#collectedDiamond;
