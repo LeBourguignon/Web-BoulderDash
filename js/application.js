@@ -13,6 +13,7 @@ class Application
         this.#controller = new Controller();
         this.#viewMainMenu = new ViewMainMenu(this.#controller);
         this.#viewGame = new ViewGame(this.#controller);
+        document.addEventListener("keydown", this.#controller.keyDown.bind(this.#controller));
     }
 }
 
