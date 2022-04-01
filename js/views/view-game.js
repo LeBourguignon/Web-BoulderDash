@@ -17,7 +17,26 @@ export class ViewGame extends View
 
         const level = this._controller.level;
 
-        const gridHTLM = document.createElement("game");
+        const headerHTML = document.createElement("header");
+        
+        const collectedDiamondHTML = document.createElement("div");
+        collectedDiamondHTML.classList.add("collectedDiamond");
+        collectedDiamondHTML.textContent = level.collectedDiamond;
+        headerHTML.appendChild(collectedDiamondHTML);
+
+        const nbDiamondHTML = document.createElement("div");
+        nbDiamondHTML.classList.add("nbDiamond");
+        nbDiamondHTML.textContent = level.nbDiamond;
+        headerHTML.appendChild(nbDiamondHTML);
+
+        const nbMoveHTML = document.createElement("div");
+        nbMoveHTML.classList.add("nbMove");
+        nbMoveHTML.textContent = level.nbMove;
+        headerHTML.appendChild(nbMoveHTML);
+
+        appHTML.appendChild(headerHTML);
+
+        const gameHTLM = document.createElement("game");
 
         level.grid.forEach((line, i) => {
             const lineHTML = document.createElement("div");
@@ -29,9 +48,9 @@ export class ViewGame extends View
                 lineHTML.appendChild(blockHTML);
             });
 
-            gridHTLM.appendChild(lineHTML);
+            gameHTLM.appendChild(lineHTML);
         });
 
-        appHTML.appendChild(gridHTLM);
+        appHTML.appendChild(gameHTLM);
     }
 }
