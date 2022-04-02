@@ -172,7 +172,7 @@ export class Level
 
     move(direction)
     {
-        if (direction === UP || direction === LEFT  || direction === DOWN  || direction === RIGHT)
+        if ((direction === UP || direction === LEFT  || direction === DOWN  || direction === RIGHT) && !this.isWin() && !this.isLoose())
         {
             const coord = new Coordinate({ x: this.#player.coordinate.x + direction.x, y: this.#player.coordinate.y + direction.y});
             if (this.#isInGrid(coord))
