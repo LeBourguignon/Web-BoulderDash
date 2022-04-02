@@ -1,18 +1,30 @@
 import { Controller } from "./controllers/controller.js";
 import { ViewMainMenu } from "./views/view-mainMenu.js";
 import { ViewGame } from "./views/view-game.js"
+import { ViewLevelsManagementMenu } from "./views/view-levelsManagementMenu.js";
+import { ViewLevelWin } from "./views/view-levelWin.js";
+import { ViewLevelLoose } from "./views/view-levelLoose.js";
+import { ViewGameWin } from "./views/view-gameWin.js";
 
 class Application
 {
     #controller;
     #viewMainMenu;
     #viewGame;
+    #viewLevelsManagementMenu;
+    #viewLevelWin;
+    #viewLevelLoose;
+    #viewGameWin;
 
     constructor()
     {
         this.#controller = new Controller();
         this.#viewMainMenu = new ViewMainMenu(this.#controller);
         this.#viewGame = new ViewGame(this.#controller);
+        this.#viewLevelsManagementMenu = new ViewLevelsManagementMenu(this.#controller);
+        this.#viewLevelWin = new ViewLevelWin(this.#controller);
+        this.#viewLevelLoose = new ViewLevelLoose(this.#controller);
+        this.#viewGameWin = new ViewGameWin(this.#controller);
         document.addEventListener("keydown", this.#controller.keyDown.bind(this.#controller));
     }
 }
