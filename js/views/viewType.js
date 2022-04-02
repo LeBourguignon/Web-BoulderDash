@@ -1,4 +1,9 @@
 export const NONE = -1;
 export const MAINMENU = 0;
 export const GAME = 1;
-export const LEVELSMANAGEMENTMENU = 2;
+export const LEVELWIN = 2;
+export const LEVELLOOSE = 3;
+export const RESTARTLEVEL = 4;
+export const RETURNMAINMENU = 5;
+export const GAMEWIN = 6;
+export const LEVELSMANAGEMENTMENU = 10;
