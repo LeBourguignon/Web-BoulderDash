@@ -1,5 +1,5 @@
 import { View } from "./view.js";
-import { GAME, MAINMENU } from "./viewType.js";
+import { MAINMENU } from "./viewType.js";
 
 export class ViewMainMenu extends View
 {
@@ -29,7 +29,7 @@ export class ViewMainMenu extends View
         const buttonRG = document.createElement("button");
         buttonRG.textContent = "Reprendre la partie";
         buttonRG.addEventListener("click", () => {
-
+            this._controller.resumeGame();
         });
         appHTML.appendChild(buttonRG);
 
