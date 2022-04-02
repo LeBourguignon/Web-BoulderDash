@@ -17,7 +17,16 @@ export class ViewGame extends View
 
         const level = this._controller.level;
 
+        /*
+            Header
+        */
+
         const headerHTML = document.createElement("header");
+
+        const levelNumber = document.createElement("div");
+        levelNumber.classList.add("levelNumber");
+        levelNumber.textContent = "Niveau " + this._controller.mapNumber;
+        headerHTML.appendChild(levelNumber);
         
         const collectedDiamondHTML = document.createElement("div");
         collectedDiamondHTML.classList.add("collectedDiamond");
@@ -36,6 +45,10 @@ export class ViewGame extends View
 
         appHTML.appendChild(headerHTML);
 
+        /*
+            Game
+        */
+
         const gameHTLM = document.createElement("game");
 
         level.grid.forEach((line, i) => {
@@ -52,5 +65,29 @@ export class ViewGame extends View
         });
 
         appHTML.appendChild(gameHTLM);
+
+        /*
+            Button
+        */
+
+        const footerHTML = document.createElement("footer");
+
+        const buttonRMM = document.createElement("button");
+        buttonRMM.textContent = "Retour au menu principal";
+        buttonRMM.addEventListener("click", () => {
+            if (this.checkView())
+                this._controller.returnMainMenu();
+        });
+        footerHTML.appendChild(buttonRMM);
+
+        const buttonRL = document.createElement("button");
+        buttonRL.textContent = "Recommencer le niveau";
+        buttonRL.addEventListener("click", () => {
+            if (this.checkView())
+                this._controller.restartLevel();
+        });
+        footerHTML.appendChild(buttonRL);
+
+        appHTML.appendChild(footerHTML);
     }
 }
