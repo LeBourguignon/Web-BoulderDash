@@ -16,9 +16,14 @@ export class View extends Observer
         this._viewType = NONE;
     }
 
+    checkView()
+    {
+        return this._controller.currentScreen === this._viewType;
+    }
+
     notify()
     {
-        if (this._controller.currentScreen === this._viewType)
+        if (this.checkView())
             this.update();
     }
 
