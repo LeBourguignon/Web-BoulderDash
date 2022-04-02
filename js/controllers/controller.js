@@ -1,5 +1,5 @@
 import { Subject } from "../patterns/subject.js";
-import { NONE, MAINMENU, GAME, LEVELSMANAGEMENTMENU } from "../views/viewType.js";
+import { NONE, MAINMENU, GAME, LEVELSMANAGEMENTMENU, LEVELWIN, LEVELLOOSE, GAMEWIN } from "../views/viewType.js";
 import { Level } from "../models/level.js";
 import { UP, LEFT, DOWN, RIGHT } from "../models/direction.js"
 
@@ -15,14 +15,19 @@ export class Controller extends Subject
         super();
         this.#currentScreen = MAINMENU;
         this.#maps = [];
-        this.addMap("/maps/test.txt");
+        this.addMap("/maps/campaign-1.txt");
+        this.addMap("/maps/campaign-2.txt");
+        this.addMap("/maps/campaign-3.txt");
         this.#mapNumber = 0;
+        this.#level = null;
     }
 
     set currentScreen(value) { this.#currentScreen = value; this.notify(); }
     get currentScreen() { return this.#currentScreen; }
 
     get level() { return this.#level; }
+
+    get mapNumber() { return this.#mapNumber+1; }
 
     addMap(address)
     {
@@ -39,6 +44,50 @@ export class Controller extends Subject
     newGame()
     {
         this.#mapNumber = 0;
+        this.#level = new Level(this.#maps[this.#mapNumber]);
+        this.currentScreen = GAME;
+    }
+
+    resumeGame()
+    {
+        if (this.#level === null)
+            this.newGame();
+        else
+            this.currentScreen = GAME;
+    }
+
+    returnMainMenu()
+    {
+        if (this.#level.isWin())
+        {
+            if (this.#mapNumber + 1 === this.#maps.length)
+            {
+                this.#level = null;
+            }
+            else
+            {
+                ++this.#mapNumber;
+                this.#level = new Level(this.#maps[this.#mapNumber]);
+            }
+            
+        }
+        else if (this.#level.isLoose())
+        {
+            this.#level = new Level(this.#maps[this.#mapNumber]);
+        }
+
+        this.currentScreen = MAINMENU;
+    }
+
+    restartLevel()
+    {
+        this.#level = new Level(this.#maps[this.#mapNumber]);
+        this.currentScreen = GAME;
+    }
+
+    nextLevel()
+    {
+        ++this.#mapNumber;
         this.#level = new Level(this.#maps[this.#mapNumber]);
         this.currentScreen = GAME;
     }
@@ -75,13 +124,14 @@ export class Controller extends Subject
 
             if (this.#level.isWin())
             {
-                console.log("Its win!");
-                //win screen (next level or return menu)
+                if (this.#mapNumber + 1 === this.#maps.length)
+                    this.currentScreen = GAMEWIN;
+                else
+                    this.currentScreen = LEVELWIN;
             }
             else if (this.#level.isLoose())
             {
-                console.log("Its loose!");
-                //loose screen (retry level or return menu)
+                this.currentScreen = LEVELLOOSE;
             }
         }
     }
