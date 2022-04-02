@@ -1,7 +1,7 @@
 import { View } from "./view.js";
 import { LEVELSMANAGEMENTMENU } from "./viewType.js";
 
-export class ViewGame extends View
+export class ViewLevelsManagementMenu extends View
 {
     constructor(controller)
     {
