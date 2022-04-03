@@ -67,7 +67,7 @@ export class ViewGame extends View
         appHTML.appendChild(gameHTLM);
 
         /*
-            Button
+            Footer
         */
 
         const footerHTML = document.createElement("footer");
