@@ -5,6 +5,8 @@ import { ViewLevelsManagementMenu } from "./views/view-levelsManagementMenu.js";
 import { ViewLevelWin } from "./views/view-levelWin.js";
 import { ViewLevelLoose } from "./views/view-levelLoose.js";
 import { ViewGameWin } from "./views/view-gameWin.js";
+import { ViewReturnMainMenu } from "./views/view-returnMainMenu.js";
+import { ViewRestartLevel } from "./views/view-restartLevel.js";
 
 class Application
 {
@@ -15,6 +17,8 @@ class Application
     #viewLevelWin;
     #viewLevelLoose;
     #viewGameWin;
+    #viewReturnMainMenu;
+    #viewRestartLevel;
 
     constructor()
     {
@@ -25,6 +29,8 @@ class Application
         this.#viewLevelWin = new ViewLevelWin(this.#controller);
         this.#viewLevelLoose = new ViewLevelLoose(this.#controller);
         this.#viewGameWin = new ViewGameWin(this.#controller);
+        this.#viewReturnMainMenu = new ViewReturnMainMenu(this.#controller);
+        this.#viewRestartLevel = new ViewRestartLevel(this.#controller);
         document.addEventListener("keydown", this.#controller.keyDown.bind(this.#controller));
     }
 }
