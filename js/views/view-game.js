@@ -1,5 +1,5 @@
 import { View } from "./view.js";
-import { GAME } from "./viewType.js";
+import { GAME, RESTARTLEVEL, RETURNMAINMENU } from "./viewType.js";
 
 export class ViewGame extends View
 {
@@ -76,7 +76,7 @@ export class ViewGame extends View
         buttonRMM.textContent = "Retour au menu principal";
         buttonRMM.addEventListener("click", () => {
             if (this.checkView())
-                this._controller.returnMainMenu();
+                this._controller.currentScreen = RETURNMAINMENU;
         });
         footerHTML.appendChild(buttonRMM);
 
@@ -84,7 +84,7 @@ export class ViewGame extends View
         buttonRL.textContent = "Recommencer le niveau";
         buttonRL.addEventListener("click", () => {
             if (this.checkView())
-                this._controller.restartLevel();
+                this._controller.currentScreen = RESTARTLEVEL;
         });
         footerHTML.appendChild(buttonRL);
 
