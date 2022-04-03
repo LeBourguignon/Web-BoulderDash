@@ -1,5 +1,5 @@
 import { View } from "./view.js";
-import { MAINMENU } from "./viewType.js";
+import { LEVELSMANAGEMENTMENU, MAINMENU } from "./viewType.js";
 
 export class ViewMainMenu extends View
 {
@@ -36,7 +36,7 @@ export class ViewMainMenu extends View
         const buttonLMM = document.createElement("button");
         buttonLMM.textContent = "Gestion des niveaux";
         buttonLMM.addEventListener("click", () => {
-
+            this._controller.levelsManagement();
         });
         appHTML.appendChild(buttonLMM);
     }
