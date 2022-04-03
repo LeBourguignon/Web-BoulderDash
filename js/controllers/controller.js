@@ -9,23 +9,27 @@ export class Controller extends Subject
     #level;
     #maps;
     #mapNumber;
+    #changingMaps;
 
     constructor()
     {
         super();
         this.#currentScreen = MAINMENU;
+        this.#level = null;
         this.#maps = [];
         this.addMap("/maps/campaign-1.txt");
         this.addMap("/maps/campaign-2.txt");
         this.addMap("/maps/campaign-3.txt");
         this.#mapNumber = 0;
-        this.#level = null;
+        this.#changingMaps = [];
     }
 
     set currentScreen(value) { this.#currentScreen = value; this.notify(); }
     get currentScreen() { return this.#currentScreen; }
 
     get level() { return this.#level; }
+
+    get changingMaps() { return this.#changingMaps; }
 
     get mapNumber() { return this.#mapNumber+1; }
 
@@ -43,9 +47,12 @@ export class Controller extends Subject
 
     newGame()
     {
-        this.#mapNumber = 0;
-        this.#level = new Level(this.#maps[this.#mapNumber]);
-        this.currentScreen = GAME;
+        if (this.#maps.length != 0)
+        {
+            this.#mapNumber = 0;
+            this.#level = new Level(this.#maps[this.#mapNumber]);
+            this.currentScreen = GAME;
+        }
     }
 
     resumeGame()
@@ -134,5 +141,57 @@ export class Controller extends Subject
                 this.currentScreen = LEVELLOOSE;
             }
         }
+    }
+
+    levelsManagement()
+    {
+        this.#changingMaps = [];
+        this.#changingMaps = this.#changingMaps.concat(this.#maps);
+        this.currentScreen = LEVELSMANAGEMENTMENU;
+    }
+
+    moveForward(i)
+    {
+        if (i > 0 && i <= this.#changingMaps.length - 1)
+        {
+            const map = this.#changingMaps[i-1];
+            this.#changingMaps[i-1] = this.#changingMaps[i];
+            this.#changingMaps[i] = map;
+        }
+        this.notify();
+    }
+
+    delete(i)
+    {
+        this.#changingMaps.splice(i, 1);
+        this.notify();
+    }
+
+    moveBack(i)
+    {
+        if (i >= 0 && i < this.#changingMaps.length - 1)
+        {
+            const map = this.#changingMaps[i+1];
+            this.#changingMaps[i+1] = this.#changingMaps[i];
+            this.#changingMaps[i] = map;
+        }
+        this.notify();
+    }
+
+    cancelLevelsManagement()
+    {
+        this.currentScreen = MAINMENU;
+    }
+
+    addLevel()
+    {
+
+    }
+
+    applyLevelsManagement()
+    {
+        this.#maps = [];
+        this.#maps = this.#maps.concat(this.#changingMaps);
+        this.currentScreen = MAINMENU;
     }
 }
