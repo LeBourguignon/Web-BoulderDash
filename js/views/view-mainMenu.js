@@ -15,9 +15,9 @@ export class ViewMainMenu extends View
         const appHTML = document.querySelector("app");
         appHTML.innerHTML = "";
 
-        const title = document.createElement("h1");
-        title.textContent = "Boulder Dash"
-        appHTML.appendChild(title);
+        const titleHTML = document.createElement("h1");
+        titleHTML.textContent = "Boulder Dash"
+        appHTML.appendChild(titleHTML);
 
         const buttonNG = document.createElement("button");
         buttonNG.textContent = "Nouvelle partie";
