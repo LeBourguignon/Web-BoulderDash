@@ -185,7 +185,23 @@ export class Controller extends Subject
 
     addLevel()
     {
-
+        const file = document.getElementById("mapForUpload").files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsText(file, "UTF-8");
+            reader.onload = (evt) => {
+                const tab = evt.target.result.split(/\r\n/m);
+                const map = [];
+                tab.forEach((line, i) => {
+                    map.push(line.split(""));
+                });
+                this.#changingMaps.push(map);
+                this.notify();
+            };
+            reader.onerror = (evt) => {
+                throw "Error reading file!";
+            }
+        }
     }
 
     applyLevelsManagement()
