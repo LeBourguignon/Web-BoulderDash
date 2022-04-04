@@ -99,12 +99,16 @@ export class ViewLevelsManagementMenu extends View
         });
         buttonHTML.appendChild(buttonC);
 
-        const buttonAL = document.createElement("button");
-        buttonAL.textContent = "Ajouter un niveau";
-        buttonAL.addEventListener("click", () => {
+        const inputHTML = document.createElement("input");
+        inputHTML.type = "file";
+        inputHTML.id = "mapForUpload";
+        inputHTML.name = "mapForUpload";
+        inputHTML.accept = ".txt";
+        inputHTML.textContent = "Ajouter un niveau";
+        inputHTML.addEventListener("change", () => {
             this._controller.addLevel();
         });
-        buttonHTML.appendChild(buttonAL);
+        buttonHTML.appendChild(inputHTML);
 
         const buttonA = document.createElement("button");
         buttonA.textContent = "Appliquer";
