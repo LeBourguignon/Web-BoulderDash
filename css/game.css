@@ -4,11 +4,21 @@ game{
     counter-reset: counterColumn;
 }
 
-game > div {
+game > header{
+
+}
+
+level{
+    display: flex;
+    flex-direction: column;
+    counter-reset: counterColumn;
+}
+
+level > div{
     display: flex;
 }
 
-game > div > div {
+level > div > div{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,4 +28,13 @@ game > div > div {
     font-size: 10px;
     margin: -1px 0 0 -1px;
     position: relative;
+}
+
+div.M{
+    
+        
+}
+
+game > footer{
+
 }
