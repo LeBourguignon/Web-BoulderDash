@@ -2,16 +2,21 @@ game{
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
+    justify-content: center;
+    align-items: center;
 }
 
 game > header{
-
+    display: flex;
+    flex-direction: row;
+    counter-reset: counterRow;
 }
 
 level{
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
+    background-color: black;
 }
 
 level > div{
@@ -20,20 +25,19 @@ level > div{
 
 level > div > div{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #000;
-    font-size: 10px;
-    margin: -1px 0 0 -1px;
+    width: 32px;
+    height: 32px;
     position: relative;
+    background: url(/resources/grid.png);
 }
 
-div.M{
-    
-        
-}
+div.M{ background-position: 0px -128px; }
+div.D{ background-position: 0px -160px; }
+div.T{ background-position: 0px -32px; }
+div.R{ background-position: 0px -64px; }
+div.V{ background-position: -32px -32px; }
+div.P{ background-position: 0px 0px; }
+div.E{ background-position: 0px -64px; }
 
 game > footer{
 
