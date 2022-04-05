@@ -1,0 +1,26 @@
+map > level{
+    display: flex;
+    flex-direction: column;
+    counter-reset: counterColumn;
+    background-color: black;
+}
+
+map > level > div{
+    display: flex;
+}
+
+map > level > div > div{
+    display: flex;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: url(/resources/grid.png);
+}
+
+div.M{ background-position: 0px -128px; }
+div.D{ background-position: 0px -160px; }
+div.T{ background-position: 0px -32px; }
+div.R{ background-position: 0px -64px; }
+div.V{ background-position: -32px -32px; }
+div.P{ background-position: 0px 0px; }
+div.E{ background-position: 0px -64px; }
