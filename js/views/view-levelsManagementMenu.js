@@ -35,7 +35,7 @@ export class ViewLevelsManagementMenu extends View
 
             mapHTML.appendChild(headerHTML);
             
-            const gameHTLM = document.createElement("game");
+            const levelHTLM = document.createElement("level");
 
             const level = new Level(map);
 
@@ -49,10 +49,10 @@ export class ViewLevelsManagementMenu extends View
                     lineHTML.appendChild(blockHTML);
                 });
 
-                gameHTLM.appendChild(lineHTML);
+                levelHTLM.appendChild(lineHTML);
             });
 
-            mapHTML.appendChild(gameHTLM);
+            mapHTML.appendChild(levelHTLM);
 
             const footerHTML = document.createElement("footer");
 
