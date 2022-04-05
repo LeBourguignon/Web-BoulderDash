@@ -17,6 +17,8 @@ export class ViewGame extends View
 
         const level = this._controller.level;
 
+        const gameHTML = document.createElement("game");
+
         /*
             Header
         */
@@ -43,13 +45,13 @@ export class ViewGame extends View
         nbMoveHTML.textContent = level.nbMove;
         headerHTML.appendChild(nbMoveHTML);
 
-        appHTML.appendChild(headerHTML);
+        gameHTML.appendChild(headerHTML);
 
         /*
             Game
         */
 
-        const gameHTLM = document.createElement("game");
+        const levelHTLM = document.createElement("level");
 
         level.grid.forEach((line, i) => {
             const lineHTML = document.createElement("div");
@@ -61,10 +63,10 @@ export class ViewGame extends View
                 lineHTML.appendChild(blockHTML);
             });
 
-            gameHTLM.appendChild(lineHTML);
+            levelHTLM.appendChild(lineHTML);
         });
 
-        appHTML.appendChild(gameHTLM);
+        gameHTML.appendChild(levelHTLM);
 
         /*
             Footer
@@ -88,6 +90,8 @@ export class ViewGame extends View
         });
         footerHTML.appendChild(buttonRL);
 
-        appHTML.appendChild(footerHTML);
+        gameHTML.appendChild(footerHTML);
+
+        appHTML.appendChild(gameHTML);
     }
 }
