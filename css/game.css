@@ -12,18 +12,23 @@ game > header{
     counter-reset: counterRow;
 }
 
-level{
+game > header > div{
+    display: flex;
+    margin: 10px;
+}
+
+game > level{
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
     background-color: black;
 }
 
-level > div{
+game > level > div{
     display: flex;
 }
 
-level > div > div{
+game > level > div > div{
     display: flex;
     width: 32px;
     height: 32px;
@@ -40,5 +45,11 @@ div.P{ background-position: 0px 0px; }
 div.E{ background-position: 0px -64px; }
 
 game > footer{
+    display: flex;
+    flex-direction: row;
+    counter-reset: counterRow;
+}
 
+game > footer > button{
+    margin: 10px;
 }
