@@ -45,7 +45,6 @@ export class ViewLevelsManagementMenu extends View
                 line.forEach((block, j) => {
                     const blockHTML = document.createElement("div");
                     blockHTML.classList.add(block.type);
-                    blockHTML.textContent = block.type;
                     lineHTML.appendChild(blockHTML);
                 });
 
