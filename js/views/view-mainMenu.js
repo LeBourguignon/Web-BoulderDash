@@ -42,6 +42,14 @@ export class ViewMainMenu extends View
         });
         mainMenuHTML.appendChild(buttonLMM);
 
+        const footerHTML = document.createElement("footer");
+
+        const pFooterHTML = document.createElement("p");
+        pFooterHTML.textContent = "Créé par Baptiste ANDRES et Tom ROTH";
+        footerHTML.appendChild(pFooterHTML);
+
+        mainMenuHTML.appendChild(footerHTML);
+
         appHTML.appendChild(mainMenuHTML);
     }
 }

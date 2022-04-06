@@ -1,4 +1,4 @@
-game{
+game {
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
@@ -6,29 +6,29 @@ game{
     align-items: center;
 }
 
-game > header{
+game > header {
     display: flex;
     flex-direction: row;
     counter-reset: counterRow;
 }
 
-game > header > div{
+game > header > div {
     display: flex;
     margin: 10px;
 }
 
-game > level{
+game > level {
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
     background-color: black;
 }
 
-game > level > div{
+game > level > div {
     display: flex;
 }
 
-game > level > div > div{
+game > level > div > div {
     display: flex;
     width: 32px;
     height: 32px;
@@ -44,12 +44,12 @@ game > level > div > div.V{ background-position: -32px -32px; }
 game > level > div > div.P{ background-position: 0px 0px; }
 game > level > div > div.E{ background-position: 0px -64px; }
 
-game > footer{
+game > footer {
     display: flex;
     flex-direction: row;
     counter-reset: counterRow;
 }
 
-game > footer > button{
+game > footer > button {
     margin: 10px;
 }

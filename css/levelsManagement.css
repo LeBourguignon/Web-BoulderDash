@@ -1,4 +1,4 @@
-maps{
+maps {
     display: flex;
     flex-direction: row;
     counter-reset: counterRow;
@@ -6,7 +6,7 @@ maps{
     align-items: center;
 }
 
-map{
+map {
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
@@ -15,18 +15,18 @@ map{
     margin: 20px;
 }
 
-map > level{
+map > level {
     display: flex;
     flex-direction: column;
     counter-reset: counterColumn;
     background-color: black;
 }
 
-map > level > div{
+map > level > div {
     display: flex;
 }
 
-map > level > div > div{
+map > level > div > div {
     display: flex;
     width: 8px;
     height: 8px;
@@ -34,10 +34,10 @@ map > level > div > div{
     background: 25% url(/resources/grid.png);
 }
 
-map > level > div > div.M{ background-position: 0px -32px; }
-map > level > div > div.D{ background-position: 0px -40px; }
-map > level > div > div.T{ background-position: 0px -8px; }
-map > level > div > div.R{ background-position: 0px -16px; }
-map > level > div > div.V{ background-position: -8px -8px; }
-map > level > div > div.P{ background-position: 0px 0px; }
-map > level > div > div.E{ background-position: 0px -16px; }
+map > level > div > div.M { background-position: 0px -32px; }
+map > level > div > div.D { background-position: 0px -40px; }
+map > level > div > div.T { background-position: 0px -8px; }
+map > level > div > div.R { background-position: 0px -16px; }
+map > level > div > div.V { background-position: -8px -8px; }
+map > level > div > div.P { background-position: 0px 0px; }
+map > level > div > div.E { background-position: 0px -16px; }
