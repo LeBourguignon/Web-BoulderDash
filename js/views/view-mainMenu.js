@@ -44,9 +44,9 @@ export class ViewMainMenu extends View
 
         const footerHTML = document.createElement("footer");
 
-        const pFooterHTML = document.createElement("div");
-        pFooterHTML.textContent = "Créé par";
-        footerHTML.appendChild(pFooterHTML);
+        const textHTML = document.createElement("div");
+        textHTML.textContent = "Créé par";
+        footerHTML.appendChild(textHTML);
 
         const Author1HTML = document.createElement("a");
 
