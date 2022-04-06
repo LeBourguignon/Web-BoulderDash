@@ -44,9 +44,26 @@ export class ViewMainMenu extends View
 
         const footerHTML = document.createElement("footer");
 
-        const pFooterHTML = document.createElement("p");
-        pFooterHTML.textContent = "Créé par Baptiste ANDRES et Tom ROTH";
+        const pFooterHTML = document.createElement("div");
+        pFooterHTML.textContent = "Créé par";
         footerHTML.appendChild(pFooterHTML);
+
+        const Author1HTML = document.createElement("a");
+
+        Author1HTML.textContent = "Baptiste ANDRES";
+        Author1HTML.href = "https://github.com/LeBourguignon";
+        footerHTML.appendChild(Author1HTML);
+
+        const textAndHTML = document.createElement("div");
+
+        textAndHTML.textContent = "et";
+        footerHTML.appendChild(textAndHTML);
+
+        const Author2HTML = document.createElement("a");
+
+        Author2HTML.textContent = "Tom ROTH";
+        Author2HTML.href = "https://github.com/tom-rh";
+        footerHTML.appendChild(Author2HTML);
 
         mainMenuHTML.appendChild(footerHTML);
 
