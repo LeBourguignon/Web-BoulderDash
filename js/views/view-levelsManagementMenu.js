@@ -16,11 +16,13 @@ export class ViewLevelsManagementMenu extends View
         const appHTML = document.querySelector("app");
         appHTML.innerHTML = "";
 
+        const levelsManagementHTML = document.createElement("levelsManagement")
+
         const titleHTML = document.createElement("h1");
         titleHTML.textContent = "Gestion des niveaux";
-        appHTML.appendChild(titleHTML);
+        levelsManagementHTML.appendChild(titleHTML);
 
-        const levelsManagementHTML = document.createElement("div");
+        const mapsHTML = document.createElement("maps");
 
         const maps = this._controller.changingMaps;
 
@@ -84,10 +86,10 @@ export class ViewLevelsManagementMenu extends View
 
             mapHTML.appendChild(footerHTML);
 
-            levelsManagementHTML.appendChild(mapHTML);
+            mapsHTML.appendChild(mapHTML);
         });
 
-        appHTML.appendChild(levelsManagementHTML);
+        levelsManagementHTML.appendChild(mapsHTML);
 
         const buttonHTML = document.createElement("div");
 
@@ -116,6 +118,8 @@ export class ViewLevelsManagementMenu extends View
         });
         buttonHTML.appendChild(buttonA);
 
-        appHTML.appendChild(buttonHTML);
+        levelsManagementHTML.appendChild(buttonHTML);
+
+        appHTML.appendChild(levelsManagementHTML);
     }
 }
