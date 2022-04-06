@@ -17,9 +17,9 @@ export class Controller extends Subject
         this.#currentScreen = MAINMENU;
         this.#level = null;
         this.#maps = [];
-        this.addMap("/maps/campaign-1.txt");
-        this.addMap("/maps/campaign-2.txt");
-        this.addMap("/maps/campaign-3.txt");
+        this.addMap("/resources/maps/campaign-1.txt");
+        this.addMap("/resources/maps/campaign-2.txt");
+        this.addMap("/resources/maps/campaign-3.txt");
         this.#mapNumber = 0;
         this.#changingMaps = [];
     }
