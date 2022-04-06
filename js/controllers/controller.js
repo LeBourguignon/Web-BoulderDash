@@ -11,6 +11,8 @@ export class Controller extends Subject
     #mapNumber;
     #changingMaps;
 
+    #music;
+
     constructor()
     {
         super();
@@ -22,6 +24,11 @@ export class Controller extends Subject
         this.addMap("/resources/maps/campaign-3.txt");
         this.#mapNumber = 0;
         this.#changingMaps = [];
+
+        this.#music = new Audio("/resources/audio/themeV1.wav");
+        this.#music.addEventListener("ended", () => {
+            this.#music.play();
+        });
     }
 
     set currentScreen(value) { this.#currentScreen = value; this.notify(); }
@@ -51,6 +58,7 @@ export class Controller extends Subject
         {
             this.#mapNumber = 0;
             this.#level = new Level(this.#maps[this.#mapNumber]);
+            this.#music.play();
             this.currentScreen = GAME;
         }
     }
