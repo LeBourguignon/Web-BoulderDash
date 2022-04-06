@@ -1,3 +1,20 @@
+maps{
+    display: flex;
+    flex-direction: row;
+    counter-reset: counterRow;
+    justify-content: center;
+    align-items: center;
+}
+
+map{
+    display: flex;
+    flex-direction: column;
+    counter-reset: counterColumn;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
 map > level{
     display: flex;
     flex-direction: column;
@@ -11,16 +28,16 @@ map > level > div{
 
 map > level > div > div{
     display: flex;
-    width: 32px;
-    height: 32px;
+    width: 8px;
+    height: 8px;
     position: relative;
-    background: url(/resources/grid.png);
+    background: 25% url(/resources/grid.png);
 }
 
-div.M{ background-position: 0px -128px; }
-div.D{ background-position: 0px -160px; }
-div.T{ background-position: 0px -32px; }
-div.R{ background-position: 0px -64px; }
-div.V{ background-position: -32px -32px; }
-div.P{ background-position: 0px 0px; }
-div.E{ background-position: 0px -64px; }
+map > level > div > div.M{ background-position: 0px -32px; }
+map > level > div > div.D{ background-position: 0px -40px; }
+map > level > div > div.T{ background-position: 0px -8px; }
+map > level > div > div.R{ background-position: 0px -16px; }
+map > level > div > div.V{ background-position: -8px -8px; }
+map > level > div > div.P{ background-position: 0px 0px; }
+map > level > div > div.E{ background-position: 0px -16px; }
