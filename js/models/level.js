@@ -18,6 +18,8 @@ export class Level
     #collectedDiamond;
     #nbMove;
 
+    #urlsDigAudio;
+    #urlsStoneSlideAudio;
 
     constructor(map)
     {
@@ -25,6 +27,14 @@ export class Level
         this.#collectedDiamond = 0;
         this.#nbMove = 0;
         this.#mapLoading(map);
+
+        this.#urlsDigAudio = [];
+        this.#urlsDigAudio.push("/resources/audio/dig1v1.wav");
+        this.#urlsDigAudio.push("/resources/audio/dig2v1.wav");
+
+        this.#urlsStoneSlideAudio = [];
+        this.#urlsStoneSlideAudio.push("/resources/audio/stoneSlide1v1.wav");
+        this.#urlsStoneSlideAudio.push("/resources/audio/stoneSlide1v1.wav");
     }
 
     get grid() { return this.#grid; }
@@ -179,6 +189,17 @@ export class Level
             {
                 if (this.#grid[coord.x][coord.y].isDestructible())
                 {
+                    switch(this.#grid[coord.x][coord.y].type)
+                    {
+                        case DIRT:
+                            const sound = new Audio(this.#urlsDigAudio[Math.floor(Math.random() * this.#urlsDigAudio.length)]);
+                            sound.play();
+                            break;
+
+                        default:
+                            break;
+                    }
+
                     if (this.#grid[coord.x][coord.y].type === DIAMOND)
                         ++this.#collectedDiamond;
 
@@ -188,6 +209,9 @@ export class Level
                 }
                 else if (this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + direction.x][coord.y + direction.y].type === VOID && (direction === LEFT || direction === RIGHT))
                 {
+                    const sound = new Audio(this.#urlsStoneSlideAudio[Math.floor(Math.random() * this.#urlsStoneSlideAudio.length)]);
+                    sound.play();
+
                     this.#grid[coord.x + direction.x][coord.y + direction.y] = this.#grid[coord.x][coord.y];
                     this.#grid[coord.x + direction.x][coord.y + direction.y].coordinate.x = coord.x + direction.x;
                     this.#grid[coord.x + direction.x][coord.y + direction.y].coordinate.y = coord.y + direction.y;
