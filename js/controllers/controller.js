@@ -114,21 +114,25 @@ export class Controller extends Subject
             switch (event.key)
             {
                 case 'z':
+				case `ArrowUp`:
                     this.#level.move(UP);
                     this.notify();
                     break;
                 
                 case 'q':
+				case `ArrowLeft`:
                     this.#level.move(LEFT);
                     this.notify();
                     break;
                     
                 case 's':
+				case `ArrowDown`:
                     this.#level.move(DOWN);
                     this.notify();
                     break;
                         
                 case 'd':
+				case `ArrowRight`:
                     this.#level.move(RIGHT);
                     this.notify();
                     break;
