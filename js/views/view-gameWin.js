@@ -17,7 +17,7 @@ export class ViewGameWin extends View
         const winHTML = document.createElement("div");
 
         const titleHTML = document.createElement("h1");
-        titleHTML.textContent = "Félitation, tu as gagné la partie !";
+        titleHTML.textContent = "Félitations, tu as gagné la partie !";
         winHTML.appendChild(titleHTML);
 
         const buttonHTML = document.createElement("div");
