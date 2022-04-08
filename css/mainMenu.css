@@ -1,3 +1,8 @@
+body {
+	background: url(/resources/bgtest2.gif);
+	background-size: cover;
+}
+
 mainMenu {
     display: flex;
     flex-direction: column;
@@ -5,9 +10,6 @@ mainMenu {
     justify-content: center;
     align-items: center;
     font-family: 'Keania One', cursive;
-    background: url(/resources/backgroundTest1.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 mainMenu > h1 {
