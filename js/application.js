@@ -1,5 +1,6 @@
 import { Controller } from "./controllers/controller.js";
 import { ViewMainMenu } from "./views/view-mainMenu.js";
+import { ViewConstFooter } from "./views/view-constFooter.js";
 import { ViewGame } from "./views/view-game.js"
 import { ViewLevelsManagementMenu } from "./views/view-levelsManagementMenu.js";
 import { ViewLevelWin } from "./views/view-levelWin.js";
@@ -12,6 +13,7 @@ class Application
 {
     #controller;
     #viewMainMenu;
+	#viewConstFooter;
     #viewGame;
     #viewLevelsManagementMenu;
     #viewLevelWin;
@@ -24,6 +26,7 @@ class Application
     {
         this.#controller = new Controller();
         this.#viewMainMenu = new ViewMainMenu(this.#controller);
+		this.#viewConstFooter = new ViewConstFooter(this.#controller);
         this.#viewGame = new ViewGame(this.#controller);
         this.#viewLevelsManagementMenu = new ViewLevelsManagementMenu(this.#controller);
         this.#viewLevelWin = new ViewLevelWin(this.#controller);

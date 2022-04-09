@@ -1,6 +1,7 @@
 maps {
     display: flex;
     flex-direction: row;
+	flex-wrap: wrap;
     counter-reset: counterRow;
     justify-content: center;
     align-items: center;

@@ -13,6 +13,8 @@ export class Controller extends Subject
 
     #music;
 
+	#volumeMusic;
+
     constructor()
     {
         super();
@@ -25,7 +27,10 @@ export class Controller extends Subject
         this.#mapNumber = 0;
         this.#changingMaps = [];
 
+		this.#volumeMusic = 0;
+
         this.#music = new Audio("/resources/audio/themeV1.wav");
+		this.#music.volume = this.#volumeMusic;
         this.#music.addEventListener("ended", () => {
             this.#music.play();
         });
@@ -39,6 +44,8 @@ export class Controller extends Subject
     get changingMaps() { return this.#changingMaps; }
 
     get mapNumber() { return this.#mapNumber+1; }
+
+	get volumeMusic() { return this.#volumeMusic; }
 
     addMap(address)
     {
@@ -222,4 +229,15 @@ export class Controller extends Subject
         this.#maps = this.#maps.concat(this.#changingMaps);
         this.currentScreen = MAINMENU;
     }
+
+	switchVolumeMusic()
+	{
+		this.#music.play();
+		if (this.#volumeMusic === 0)
+			this.#volumeMusic = 1;
+		else
+			this.#volumeMusic = 0;
+		this.#music.volume = this.#volumeMusic;
+		this.notify();
+	}
 }

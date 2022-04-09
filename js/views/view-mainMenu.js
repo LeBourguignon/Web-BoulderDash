@@ -42,31 +42,6 @@ export class ViewMainMenu extends View
         });
         mainMenuHTML.appendChild(buttonLMM);
 
-        const footerHTML = document.createElement("footer");
-
-        const textHTML = document.createElement("div");
-        textHTML.textContent = "Créé par";
-        footerHTML.appendChild(textHTML);
-
-        const Author1HTML = document.createElement("a");
-
-        Author1HTML.textContent = "Baptiste ANDRES";
-        Author1HTML.href = "https://github.com/LeBourguignon";
-        footerHTML.appendChild(Author1HTML);
-
-        const textAndHTML = document.createElement("div");
-
-        textAndHTML.textContent = "et";
-        footerHTML.appendChild(textAndHTML);
-
-        const Author2HTML = document.createElement("a");
-
-        Author2HTML.textContent = "Tom ROTH";
-        Author2HTML.href = "https://github.com/tom-rh";
-        footerHTML.appendChild(Author2HTML);
-
-        mainMenuHTML.appendChild(footerHTML);
-
         appHTML.appendChild(mainMenuHTML);
     }
 }
