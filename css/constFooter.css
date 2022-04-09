@@ -1,6 +1,9 @@
-constFooter > div {
-    position: absolute;
+constFooter {
+	position: fixed;
     bottom: 0;
+}
+
+constFooter > div {
     width: 100%;
 	margin-bottom: 5px;
     display: flex;
@@ -21,7 +24,7 @@ constFooter > div > a {
 }
 
 constFooter > img {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
 	width: 40px;
