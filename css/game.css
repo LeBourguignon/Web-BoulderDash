@@ -51,7 +51,3 @@ game > footer {
     flex-direction: row;
     counter-reset: counterRow;
 }
-
-game > footer > button:hover {
-    color: dodgerblue;
-}
