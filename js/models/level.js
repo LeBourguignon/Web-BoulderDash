@@ -193,11 +193,22 @@ export class Level
                 }
                 else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === PLAYER && this.#grid[coord.x][coord.y].isMoving)
                 {
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = new Tombstone(this, new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y}));
+                    this.#player = this.#grid[coord.x + DOWN.x][coord.y + DOWN.y];
                     
+                    this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
                 }
                 else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x][coord.y].isMoving)
                 {
                     this.#grid[coord.x][coord.y].isMoving = false;
+                }
+                else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === TOMBSTONE && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === VOID)
+                {
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = this.#grid[coord.x][coord.y];
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.x = coord.x + DOWN.x;
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.y = coord.y + DOWN.y;
+
+                    this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
                 }
             }
         }
