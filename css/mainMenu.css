@@ -4,7 +4,6 @@ mainMenu {
     counter-reset: counterColumn;
     justify-content: center;
     align-items: center;
-    font-family: 'Keania One', cursive;
 }
 
 mainMenu > h1 {
@@ -14,20 +13,8 @@ mainMenu > h1 {
 	color: #fff;
 }
 
-mainMenu > button {
-    font-family: 'Keania One', cursive;
-    text-transform: uppercase;
-    width: 25%;
-    margin: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-    background-color: #181818;
-    color: #bababa;
-    font-size: 20px;
-    cursor: pointer;
+mainMenu >  button  {
+	width: 25%;
 }
 
 mainMenu > button:hover {

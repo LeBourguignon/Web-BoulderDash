@@ -52,21 +52,6 @@ game > footer {
     counter-reset: counterRow;
 }
 
-game > footer > button {
-    font-family: 'Keania One', cursive;
-    text-transform: uppercase;
-    margin: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-    background-color: #181818;
-    color: #bababa;
-    font-size: 20px;
-    cursor: pointer;
-}
-
 game > footer > button:hover {
     color: dodgerblue;
 }

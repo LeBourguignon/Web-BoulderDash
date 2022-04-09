@@ -1,7 +1,6 @@
 levelsmanagement {
 	display: flex;
 	flex-direction: column;
-	font-family: 'Keania One', cursive;
 	color: #fff;
 	align-items: center;
 }
