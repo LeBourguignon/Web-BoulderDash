@@ -14,7 +14,7 @@ export class ViewLevelWin extends View
     {
         const appHTML = document.querySelector("app");
 
-        const winHTML = document.createElement("div");
+        const winHTML = document.createElement("confirmation");
 
         const titleHTML = document.createElement("h1");
         titleHTML.textContent = "Niveau " + this._controller.mapNumber + " gagné !";

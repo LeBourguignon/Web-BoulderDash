@@ -14,7 +14,7 @@ export class ViewRestartLevel extends View
     {
         const appHTML = document.querySelector("app");
 
-        const restartLevelHTML = document.createElement("div");
+        const restartLevelHTML = document.createElement("confirmation");
 
         const titleHTML = document.createElement("h1");
         titleHTML.textContent = "Etes-vous sûr de vouloir recommencer le niveau ?";
