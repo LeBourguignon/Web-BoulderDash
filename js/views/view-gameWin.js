@@ -14,7 +14,7 @@ export class ViewGameWin extends View
     {
         const appHTML = document.querySelector("app");
 
-        const winHTML = document.createElement("div");
+        const winHTML = document.createElement("confirmation");
 
         const titleHTML = document.createElement("h1");
         titleHTML.textContent = "Félitations, tu as gagné la partie !";

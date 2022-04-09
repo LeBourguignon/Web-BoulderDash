@@ -14,7 +14,7 @@ export class ViewLevelLoose extends View
     {
         const appHTML = document.querySelector("app");
 
-        const looseHTML = document.createElement("div");
+        const looseHTML = document.createElement("confirmation");
 
         const titleHTML = document.createElement("h1");
         titleHTML.textContent = "Niveau " + this._controller.mapNumber + " perdu !";

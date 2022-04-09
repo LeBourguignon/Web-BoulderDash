@@ -14,7 +14,7 @@ export class ViewReturnMainMenu extends View
     {
         const appHTML = document.querySelector("app");
 
-        const returnMainMenuHTML = document.createElement("div");
+        const returnMainMenuHTML = document.createElement("confirmation");
 
         const titleHTML = document.createElement("h1");
         titleHTML.textContent = "Etes-vous sûr de vouloir retourner au menu principal ?";

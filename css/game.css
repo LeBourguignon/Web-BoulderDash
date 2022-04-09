@@ -10,6 +10,8 @@ game > header {
     display: flex;
     flex-direction: row;
     counter-reset: counterRow;
+	color: #fff;
+	font-family: 'Keania One', cursive;
 }
 
 game > header > div {
