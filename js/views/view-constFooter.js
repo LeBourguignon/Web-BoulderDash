@@ -49,7 +49,14 @@ export class ViewConstFooter extends Observer
 
 		const volumeHTML = document.createElement("img");
 
-		volumeHTML.src = "/resources/img/volume-on.png";
+		if (this._controller.volumeMusic === 0)
+			volumeHTML.src = "/resources/img/volume-off.png";
+		else
+			volumeHTML.src = "/resources/img/volume-on.png";
+		
+		volumeHTML.addEventListener("click", () => {
+			this._controller.switchVolumeMusic();
+		});
 		constFooterHTML.appendChild(volumeHTML);
     }
 }
