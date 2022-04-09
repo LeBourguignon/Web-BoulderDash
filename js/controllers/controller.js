@@ -7,6 +7,7 @@ export class Controller extends Subject
 {
     #currentScreen;
     #level;
+    #intervalID;
     #maps;
     #mapNumber;
     #changingMaps;
@@ -20,6 +21,7 @@ export class Controller extends Subject
         super();
         this.#currentScreen = MAINMENU;
         this.#level = null;
+        this.#intervalID = setInterval(() => this.notifyGravity(), 200);
         this.#maps = [];
         this.addMap("/resources/maps/campaign-1.txt");
         this.addMap("/resources/maps/campaign-2.txt");
@@ -114,6 +116,21 @@ export class Controller extends Subject
         this.currentScreen = GAME;
     }
 
+    checkEndGame()
+    {
+        if (this.#level.isWin())
+        {
+            if (this.#mapNumber + 1 === this.#maps.length)
+                this.currentScreen = GAMEWIN;
+            else
+                this.currentScreen = LEVELWIN;
+        }
+        else if (this.#level.isLoose())
+        {
+            this.currentScreen = LEVELLOOSE;
+        }
+    }
+
     keyDown(event)
     {
         if (this.currentScreen === GAME)
@@ -148,18 +165,18 @@ export class Controller extends Subject
                     break;                      
             }
 
-            if (this.#level.isWin())
-            {
-                if (this.#mapNumber + 1 === this.#maps.length)
-                    this.currentScreen = GAMEWIN;
-                else
-                    this.currentScreen = LEVELWIN;
-            }
-            else if (this.#level.isLoose())
-            {
-                this.currentScreen = LEVELLOOSE;
-            }
+            this.checkEndGame();
         }
+    }
+
+    notifyGravity()
+    {
+        if (this.#level !== null)
+            if (this.#level.updateGravityStepByStep())
+            {
+                this.notify();
+                this.checkEndGame();
+            }
     }
 
     levelsManagement()
