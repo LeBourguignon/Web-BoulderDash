@@ -15,6 +15,10 @@ export class ViewRestartLevel extends View
 		const gameFooter = document.getElementById("gameFooter");
 		gameFooter.innerHTML = "";
 
+        const lastConfirmationHTML = document.querySelector("confirmation");
+        if (lastConfirmationHTML !== null)
+            lastConfirmationHTML.remove();
+
         const appHTML = document.querySelector("app");
 
         const restartLevelHTML = document.createElement("confirmation");
