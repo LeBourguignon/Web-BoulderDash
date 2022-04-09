@@ -176,6 +176,7 @@ export class Level
 
     updateGravityStepByStep()
     {
+        let isMoving = false;
         for (let i = this.#grid.length - 1; i >= 0 ; --i)
         {
             for (let j = this.#grid[i].length - 1; j >= 0; --j)
@@ -185,11 +186,15 @@ export class Level
 
                 if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === VOID)
                 {
+                    this.#grid[coord.x][coord.y].isMoving = true;
+
                     this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = this.#grid[coord.x][coord.y];
                     this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.x = coord.x + DOWN.x;
                     this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.y = coord.y + DOWN.y;
 
                     this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
+
+                    isMoving = true;
                 }
                 else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === PLAYER && this.#grid[coord.x][coord.y].isMoving)
                 {
@@ -197,6 +202,7 @@ export class Level
                     this.#player = this.#grid[coord.x + DOWN.x][coord.y + DOWN.y];
                     
                     this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
+                    isMoving = true;
                 }
                 else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x][coord.y].isMoving)
                 {
@@ -209,9 +215,11 @@ export class Level
                     this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.y = coord.y + DOWN.y;
 
                     this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
+                    isMoving = true;
                 }
             }
         }
+        return isMoving;
     }
 
     isWin()
@@ -249,7 +257,7 @@ export class Level
 
                     this.#movePlayer(coord);
                     
-                    this.#updateGravityAll();
+                    // this.#updateGravityAll();
                 }
                 else if (this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + direction.x][coord.y + direction.y].type === VOID && (direction === LEFT || direction === RIGHT))
                 {
@@ -262,7 +270,7 @@ export class Level
 
                     this.#movePlayer(coord);
 
-                    this.#updateGravityAll();
+                    // this.#updateGravityAll();
                 }
             }
         }
