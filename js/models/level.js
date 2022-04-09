@@ -101,7 +101,7 @@ export class Level
                 }
             }
         }
-        this.#updateGravity();
+        this.#updateGravityAll();
     }
 
     #isInGrid(coordinate)
@@ -121,15 +121,14 @@ export class Level
         ++this.#nbMove;
     }
 
-    #updateGravity()
+    #updateGravityAll()
     {
         for (let i = this.#grid.length - 1; i >= 0 ; --i)
         {
             for (let j = this.#grid[i].length - 1; j >= 0; --j)
             {
-                var coord, isMoving;
+                var coord;
                 coord = new Coordinate({ x: i, y: j});
-                isMoving = false;
 
                 while (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === VOID)
                 {
@@ -141,10 +140,10 @@ export class Level
 
                     coord.x += DOWN.x;
                     coord.y += DOWN.y;
-                    isMoving = true;
+                    this.#grid[coord.x][coord.y].isMoving = true;
                 }
                 
-                if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === PLAYER && isMoving)
+                if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === PLAYER && this.#grid[coord.x][coord.y].isMoving)
                 {
                     this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = new Tombstone(this, new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y}));
                     this.#player = this.#grid[coord.x + DOWN.x][coord.y + DOWN.y];
@@ -165,6 +164,40 @@ export class Level
 
                     coord.x += DOWN.x;
                     coord.y += DOWN.y;
+                }
+
+                if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x][coord.y].isMoving)
+                {
+                    this.#grid[coord.x][coord.y].isMoving = false;
+                }
+            }
+        }
+    }
+
+    updateGravityStepByStep()
+    {
+        for (let i = this.#grid.length - 1; i >= 0 ; --i)
+        {
+            for (let j = this.#grid[i].length - 1; j >= 0; --j)
+            {
+                var coord;
+                coord = new Coordinate({ x: i, y: j});
+
+                if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === VOID)
+                {
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y] = this.#grid[coord.x][coord.y];
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.x = coord.x + DOWN.x;
+                    this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].coordinate.y = coord.y + DOWN.y;
+
+                    this.#grid[coord.x][coord.y] = new Void(this, new Coordinate({ x: coord.x, y: coord.y}));
+                }
+                else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + DOWN.x][coord.y + DOWN.y].type === PLAYER && this.#grid[coord.x][coord.y].isMoving)
+                {
+                    
+                }
+                else if (this.#isInGrid(new Coordinate({ x: coord.x + DOWN.x, y: coord.y + DOWN.y})) && this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x][coord.y].isMoving)
+                {
+                    this.#grid[coord.x][coord.y].isMoving = false;
                 }
             }
         }
@@ -205,7 +238,7 @@ export class Level
 
                     this.#movePlayer(coord);
                     
-                    this.#updateGravity();
+                    this.#updateGravityAll();
                 }
                 else if (this.#grid[coord.x][coord.y].type === ROCK && this.#grid[coord.x + direction.x][coord.y + direction.y].type === VOID && (direction === LEFT || direction === RIGHT))
                 {
@@ -218,7 +251,7 @@ export class Level
 
                     this.#movePlayer(coord);
 
-                    this.#updateGravity();
+                    this.#updateGravityAll();
                 }
             }
         }
