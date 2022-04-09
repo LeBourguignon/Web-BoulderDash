@@ -29,20 +29,32 @@ export class ViewGame extends View
         levelNumber.classList.add("levelNumber");
         levelNumber.textContent = "Niveau " + this._controller.mapNumber;
         headerHTML.appendChild(levelNumber);
+
+		const collectedDiamondTextHTML = document.createElement("div");
+		collectedDiamondTextHTML.textContent = "| Nombre de diamants ramassés : ";
+		headerHTML.appendChild(collectedDiamondTextHTML);
         
         const collectedDiamondHTML = document.createElement("div");
         collectedDiamondHTML.classList.add("collectedDiamond");
-        collectedDiamondHTML.textContent = level.collectedDiamond;
+        collectedDiamondHTML.textContent = level.collectedDiamond + " |";
         headerHTML.appendChild(collectedDiamondHTML);
+
+		const nbDiamondTextHTML = document.createElement("div");
+		nbDiamondTextHTML.textContent = "| Nombre de diamants : ";
+		headerHTML.appendChild(nbDiamondTextHTML);
 
         const nbDiamondHTML = document.createElement("div");
         nbDiamondHTML.classList.add("nbDiamond");
-        nbDiamondHTML.textContent = level.nbDiamond;
+        nbDiamondHTML.textContent = level.nbDiamond + " |";
         headerHTML.appendChild(nbDiamondHTML);
+
+		const nbMoveTextHTML = document.createElement("div");
+		nbMoveTextHTML.textContent = "| Nombre de mouvements : ";
+		headerHTML.appendChild(nbMoveTextHTML);
 
         const nbMoveHTML = document.createElement("div");
         nbMoveHTML.classList.add("nbMove");
-        nbMoveHTML.textContent = level.nbMove;
+        nbMoveHTML.textContent = level.nbMove + " |";
         headerHTML.appendChild(nbMoveHTML);
 
         gameHTML.appendChild(headerHTML);
