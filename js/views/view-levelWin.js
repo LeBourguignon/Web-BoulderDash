@@ -12,6 +12,9 @@ export class ViewLevelWin extends View
 
     update()
     {
+		const gameFooter = document.getElementById("gameFooter");
+		gameFooter.innerHTML = "";
+
         const appHTML = document.querySelector("app");
 
         const winHTML = document.createElement("confirmation");

@@ -72,6 +72,7 @@ export class ViewGame extends View
         */
 
         const footerHTML = document.createElement("footer");
+		footerHTML.id = "gameFooter";
 
         const buttonRMM = document.createElement("button");
         buttonRMM.textContent = "Retour au menu principal";

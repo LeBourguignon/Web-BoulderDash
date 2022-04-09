@@ -12,6 +12,9 @@ export class ViewLevelLoose extends View
 
     update()
     {
+		const gameFooter = document.getElementById("gameFooter");
+		gameFooter.innerHTML = "";
+
         const appHTML = document.querySelector("app");
 
         const looseHTML = document.createElement("confirmation");

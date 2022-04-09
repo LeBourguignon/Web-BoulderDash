@@ -12,6 +12,9 @@ export class ViewReturnMainMenu extends View
 
     update()
     {
+		const gameFooter = document.getElementById("gameFooter");
+		gameFooter.innerHTML = "";
+		
         const appHTML = document.querySelector("app");
 
         const returnMainMenuHTML = document.createElement("confirmation");
