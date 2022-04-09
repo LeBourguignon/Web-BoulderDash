@@ -1,0 +1,30 @@
+constFooter > div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+	margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+constFooter > div > div {
+    font-family: 'Keania One', cursive;
+    padding-left: 5px;
+	color: #fff;
+}
+
+constFooter > div > a {
+	font-family: 'Keania One', cursive;
+    padding-left: 5px;
+	text-decoration: none;
+	color: dodgerblue;
+}
+
+constFooter > img {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	margin: 5px;
+}
