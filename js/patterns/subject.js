@@ -1,5 +1,3 @@
-import { Observer } from "./observer";
-
 export class Subject
 {
     //Observer Vector

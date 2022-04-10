@@ -1,6 +1,5 @@
 import { Observer } from "../patterns/observer.js";
 import { NONE } from "./viewType.js";
-import { Controller } from "../controllers/controller.js";
 
 export class View extends Observer
 {
