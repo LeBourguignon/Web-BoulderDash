@@ -1,8 +1,15 @@
 export class Coordinate
 {
+    //X-axis
     #x;
+
+    //Y-axis
     #y;
 
+    /**
+     * Constructor
+     * @param {Coordonnee} coordinate : Coordinate with which the instance is initialized 
+     */
     constructor(coordinate)
     {
         this.#x = coordinate.x;
