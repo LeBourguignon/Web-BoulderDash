@@ -45,6 +45,17 @@ export class ViewConstFooter extends Observer
         Author2HTML.href = "https://github.com/tom-rh";
         authorsHTML.appendChild(Author2HTML);
 
+		const textAnd2HTML = document.createElement("div");
+
+        textAnd2HTML.textContent = " | Musique composée par ";
+        authorsHTML.appendChild(textAnd2HTML);
+
+		const Author3HTML = document.createElement("a");
+
+		Author3HTML.textContent = "Mydren";
+        Author3HTML.href = "https://www.youtube.com/channel/UCY1JDhGKM5MYJsNXyhRXj8w";
+        authorsHTML.appendChild(Author3HTML);
+
         constFooterHTML.appendChild(authorsHTML);
 
 		const volumeHTML = document.createElement("img");
