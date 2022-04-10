@@ -49,9 +49,9 @@ export class Controller extends Subject
 
 	get volumeMusic() { return this.#volumeMusic; }
 
-    addMap(address)
+    async addMap(address)
     {
-        fetch(address).then((res) => res.text()).then((text) => {
+        await fetch(address).then((res) => res.text()).then((text) => {
             const tab = text.split(/\r\n/m);
             const map = [];
             tab.forEach((line, i) => {
