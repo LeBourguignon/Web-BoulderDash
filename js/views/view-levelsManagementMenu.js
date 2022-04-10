@@ -4,6 +4,10 @@ import { Level } from "../models/level.js";
 
 export class ViewLevelsManagementMenu extends View
 {
+    /**
+     * constructor
+     * @param {Controller} controller : Controller managing the view
+     */
     constructor(controller)
     {
         super(controller);
@@ -11,6 +15,9 @@ export class ViewLevelsManagementMenu extends View
         this.notify();
     }
 
+    /**
+     * update of the view
+     */
     update()
     {
         const appHTML = document.querySelector("app");
