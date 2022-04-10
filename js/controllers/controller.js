@@ -314,6 +314,7 @@ export class Controller extends Subject
     {
         this.#maps = [];
         this.#maps = this.#maps.concat(this.#changingMaps);
+        this.#level = null;
         this.currentScreen = MAINMENU;
     }
 
