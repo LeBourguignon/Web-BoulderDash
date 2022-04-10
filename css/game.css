@@ -42,7 +42,7 @@ game > level > div > div.T{ background-position: 0px -32px; }
 game > level > div > div.R{ background-position: 0px -64px; }
 game > level > div > div.V{ background-position: -32px -32px; }
 game > level > div > div.P{ background-position: 0px 0px; }
-game > level > div > div.E{ background-position: 0px -64px; }
+game > level > div > div.E{ background: url(/resources/img/tombstone.png); }
 
 game > footer {
     display: flex;
