@@ -3,6 +3,10 @@ import { RETURNMAINMENU } from "./viewType.js";
 
 export class ViewReturnMainMenu extends View
 {
+    /**
+     * constructor
+     * @param {Controller} controller : Controller managing the view
+     */
     constructor(controller)
     {
         super(controller);
@@ -10,6 +14,9 @@ export class ViewReturnMainMenu extends View
         this.notify();
     }
 
+    /**
+     * update of the view
+     */
     update()
     {
 		/*
