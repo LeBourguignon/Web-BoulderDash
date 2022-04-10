@@ -1,0 +1,87 @@
+levelsmanagement {
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	align-items: center;
+}
+
+levelsmanagement > maps > map > footer > button {
+    margin: 10px;
+    font-size: 15px;
+}
+
+levelsmanagement > div > button {
+    margin: 10px;
+    font-size: 15px;
+}
+
+levelsmanagement > div > input {
+	font-family: 'Keania One', cursive;
+    text-transform: uppercase;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+    background-color: #181818;
+    color: #bababa;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+maps {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: wrap;
+    counter-reset: counterRow;
+    justify-content: center;
+    align-items: center;
+	margin-bottom: 50px;
+}
+
+map {
+    display: flex;
+    flex-direction: column;
+    counter-reset: counterColumn;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+map > level {
+    display: flex;
+    flex-direction: column;
+    counter-reset: counterColumn;
+    background-color: black;
+}
+
+map > level > div {
+    display: flex;
+}
+
+map > level > div > div {
+    display: flex;
+    width: 8px;
+    height: 8px;
+    position: relative;
+    background: 25% url(/resources/img/grid.png);
+}
+
+map > footer {
+	display: flex;
+	align-items: center;
+}
+
+map > footer > img {
+	height: 30px;
+	cursor: pointer;
+}
+
+map > level > div > div.M { background-position: 0px -128px; }
+map > level > div > div.D { background-position: 0px -160px; }
+map > level > div > div.T { background-position: 0px -32px; }
+map > level > div > div.R { background-position: 0px -64px; }
+map > level > div > div.V { background-position: -32px -32px; }
+map > level > div > div.P { background-position: 0px 0px; }
+map > level > div > div.E { background: url(/resources/img/tombstone.png); }

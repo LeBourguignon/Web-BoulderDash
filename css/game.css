@@ -1,0 +1,51 @@
+game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+game > header {
+    display: flex;
+    flex-direction: row;
+    counter-reset: counterRow;
+	color: #fff;
+	font-family: 'Keania One', cursive;
+}
+
+game > header > div {
+    display: flex;
+    margin: 10px;
+}
+
+game > level {
+    display: flex;
+    flex-direction: column;
+    counter-reset: counterColumn;
+    background-color: black;
+}
+
+game > level > div {
+    display: flex;
+}
+
+game > level > div > div {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: url(/resources/img/grid.png);
+}
+
+game > level > div > div.M{ background-position: 0px -128px; }
+game > level > div > div.D{ background: url(/resources/img/diamond.gif); }
+game > level > div > div.T{ background-position: 0px -32px; }
+game > level > div > div.R{ background-position: 0px -64px; }
+game > level > div > div.V{ background-position: -32px -32px; }
+game > level > div > div.P{ background-position: 0px 0px; }
+game > level > div > div.E{ background: url(/resources/img/tombstone.png); }
+
+game > footer {
+    display: flex;
+    flex-direction: row;
+    counter-reset: counterRow;
+}

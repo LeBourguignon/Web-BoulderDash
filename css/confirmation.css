@@ -1,0 +1,12 @@
+confirmation {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+confirmation > h1 {
+	font-family: 'Keania One', cursive;
+	text-transform: uppercase;
+	color: #fff;
+}
