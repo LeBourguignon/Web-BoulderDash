@@ -12,6 +12,10 @@ export class ViewMainMenu extends View
 
     update()
     {
+		/*
+            Main menu
+        */
+
         const appHTML = document.querySelector("app");
         appHTML.innerHTML = "";
 

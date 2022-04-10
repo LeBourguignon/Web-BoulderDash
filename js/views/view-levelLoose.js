@@ -12,6 +12,10 @@ export class ViewLevelLoose extends View
 
     update()
     {
+		/*
+            Game footer
+        */
+
 		const gameFooter = document.getElementById("gameFooter");
 		gameFooter.innerHTML = "";
 
@@ -20,6 +24,10 @@ export class ViewLevelLoose extends View
             lastConfirmationHTML.remove();
 
         const appHTML = document.querySelector("app");
+
+		/*
+            Confirmation
+        */
 
         const looseHTML = document.createElement("confirmation");
 

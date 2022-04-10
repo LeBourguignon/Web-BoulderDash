@@ -12,6 +12,10 @@ export class ViewRestartLevel extends View
 
     update()
     {
+		/*
+            Game footer
+        */
+
 		const gameFooter = document.getElementById("gameFooter");
 		gameFooter.innerHTML = "";
 
@@ -20,6 +24,10 @@ export class ViewRestartLevel extends View
             lastConfirmationHTML.remove();
 
         const appHTML = document.querySelector("app");
+
+		/*
+            Confirmation
+        */
 
         const restartLevelHTML = document.createElement("confirmation");
 

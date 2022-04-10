@@ -12,6 +12,10 @@ export class ViewGame extends View
 
     update()
     {
+		/*
+            Game
+        */
+
         const appHTML = document.querySelector("app");
         appHTML.innerHTML = "";
 

@@ -22,6 +22,10 @@ export class ViewLevelsManagementMenu extends View
         titleHTML.textContent = "Gestion des niveaux";
         levelsManagementHTML.appendChild(titleHTML);
 
+		/*
+            Maps list
+        */
+
         const mapsHTML = document.createElement("maps");
 
         const maps = this._controller.changingMaps;
@@ -90,6 +94,10 @@ export class ViewLevelsManagementMenu extends View
         });
 
         levelsManagementHTML.appendChild(mapsHTML);
+
+		/*
+			Options list
+		*/
 
         const buttonHTML = document.createElement("div");
 

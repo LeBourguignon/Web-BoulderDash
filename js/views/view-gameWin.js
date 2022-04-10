@@ -12,6 +12,10 @@ export class ViewGameWin extends View
 
     update()
     {
+		/*
+            Game footer
+        */
+
 		const gameFooter = document.getElementById("gameFooter");
 		gameFooter.innerHTML = "";
 
@@ -20,6 +24,10 @@ export class ViewGameWin extends View
             lastConfirmationHTML.remove();
 
         const appHTML = document.querySelector("app");
+
+		/*
+            Confirmation
+        */
 
         const winHTML = document.createElement("confirmation");
 

@@ -19,8 +19,16 @@ export class ViewConstFooter extends Observer
 
     update()
     {
+		/*
+            Footer
+        */
+
         const constFooterHTML = document.querySelector("constFooter");
         constFooterHTML.innerHTML = "";
+
+		/*
+            Credits
+        */
 
         const authorsHTML = document.createElement("div");
 
@@ -57,6 +65,10 @@ export class ViewConstFooter extends Observer
         authorsHTML.appendChild(Author3HTML);
 
         constFooterHTML.appendChild(authorsHTML);
+
+		/*
+            Volume icon
+        */
 
 		const volumeHTML = document.createElement("img");
 
