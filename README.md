@@ -18,6 +18,8 @@ _Le détail du fonctionnement se trouve dans les commentaires du code._
 
 Nous utilisons un MVC qui s'occupe des modèles, des vues et du controleur.
 
+Si vous faites des modifications dans le menu de **Gestion des niveaux**, pensez à cliquer sur **Appliquer** pour sauvegarder les modifications.
+
 # Visualisation
 
 ![mainmenu](https://raw.githubusercontent.com/LeBourguignon/Web-BoulderDash/dev/resources/github/mainmenu.png)
