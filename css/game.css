@@ -33,11 +33,11 @@ game > level > div > div {
     width: 32px;
     height: 32px;
     position: relative;
-    background: url(/resources/grid.png);
+    background: url(/resources/img/grid.png);
 }
 
 game > level > div > div.M{ background-position: 0px -128px; }
-game > level > div > div.D{ background-position: 0px -160px; }
+game > level > div > div.D{ background: url(/resources/img/diamond.gif); }
 game > level > div > div.T{ background-position: 0px -32px; }
 game > level > div > div.R{ background-position: 0px -64px; }
 game > level > div > div.V{ background-position: -32px -32px; }
