@@ -3,6 +3,10 @@ import { LEVELSMANAGEMENTMENU, MAINMENU } from "./viewType.js";
 
 export class ViewMainMenu extends View
 {
+    /**
+     * constructor
+     * @param {Controller} controller : Controller managing the view
+     */
     constructor(controller)
     {
         super(controller);
@@ -10,6 +14,9 @@ export class ViewMainMenu extends View
         this.notify();
     }
 
+    /**
+     * update of the view
+     */
     update()
     {
 		/*
