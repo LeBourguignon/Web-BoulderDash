@@ -5,15 +5,28 @@ import { UP, LEFT, DOWN, RIGHT } from "../models/direction.js"
 
 export class Controller extends Subject
 {
+	//Current screen
     #currentScreen;
+
+	//Current level
     #level;
+
+	//Identifier of the interval of time for gravity
     #intervalID;
+
+	//Maps of the game
     #maps;
+
+	//Number of the current map
     #mapNumber;
+
+	//Temporary save of modifications in levels management menu
     #changingMaps;
 
+	// Music
     #music;
 
+	// Volume of the music
 	#volumeMusic;
 
 	/**
@@ -22,6 +35,11 @@ export class Controller extends Subject
     constructor()
     {
         super();
+
+		/*
+		 * Set default values
+		 */
+
         this.#currentScreen = MAINMENU;
         this.#level = null;
         this.#intervalID = setInterval(() => this.notifyGravity(), 200);
@@ -31,6 +49,10 @@ export class Controller extends Subject
         this.addMap("/resources/maps/campaign-3.txt");
         this.#mapNumber = 0;
         this.#changingMaps = [];
+
+		/*
+		 * Music
+		 */
 
 		this.#volumeMusic = 0;
 
