@@ -65,7 +65,17 @@ map > level > div > div {
     width: 8px;
     height: 8px;
     position: relative;
-    background: 25% url(/resources/grid.png);
+    background: 25% url(/resources/img/grid.png);
+}
+
+map > footer {
+	display: flex;
+	align-items: center;
+}
+
+map > footer > img {
+	height: 30px;
+	cursor: pointer;
 }
 
 map > level > div > div.M { background-position: 0px -128px; }
