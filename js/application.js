@@ -11,7 +11,10 @@ import { ViewRestartLevel } from "./views/view-restartLevel.js";
 
 class Application
 {
+    //Controller
     #controller;
+
+    //Views
     #viewMainMenu;
 	#viewConstFooter;
     #viewGame;
@@ -22,9 +25,15 @@ class Application
     #viewReturnMainMenu;
     #viewRestartLevel;
 
+    /**
+     * Constructor
+     */
     constructor()
     {
+        //Controller
         this.#controller = new Controller();
+
+        //Views
         this.#viewMainMenu = new ViewMainMenu(this.#controller);
 		this.#viewConstFooter = new ViewConstFooter(this.#controller);
         this.#viewGame = new ViewGame(this.#controller);
@@ -34,10 +43,15 @@ class Application
         this.#viewGameWin = new ViewGameWin(this.#controller);
         this.#viewReturnMainMenu = new ViewReturnMainMenu(this.#controller);
         this.#viewRestartLevel = new ViewRestartLevel(this.#controller);
+
+        //Added keydown event
         document.addEventListener("keydown", this.#controller.keyDown.bind(this.#controller));
     }
 }
 
+/**
+ * Launching the application when the web page is loaded
+ */
 window.addEventListener("load", () => {
     const app = new Application();
 })
