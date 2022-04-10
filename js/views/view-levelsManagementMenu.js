@@ -59,12 +59,12 @@ export class ViewLevelsManagementMenu extends View
 
             if (i != 0)
             {
-                const buttonMF = document.createElement("button");
-                buttonMF.textContent = "Avancer";
-                buttonMF.addEventListener("click", () => {
+				const arrowLeftHTML = document.createElement("img");
+				arrowLeftHTML.src = "/resources/img/arrow-left.png";
+				arrowLeftHTML.addEventListener("click", () => {
                     this._controller.moveForward(i);
                 });
-                footerHTML.appendChild(buttonMF);
+				footerHTML.appendChild(arrowLeftHTML);
             }
 
             const buttonD = document.createElement("button");
@@ -76,12 +76,12 @@ export class ViewLevelsManagementMenu extends View
 
             if (i != maps.length - 1)
             {
-                const buttonMB = document.createElement("button");
-                buttonMB.textContent = "Reculer";
-                buttonMB.addEventListener("click", () => {
+				const arrowRightHTML = document.createElement("img");
+				arrowRightHTML.src = "/resources/img/arrow-right.png";
+				arrowRightHTML.addEventListener("click", () => {
                     this._controller.moveBack(i);
                 });
-                footerHTML.appendChild(buttonMB);
+				footerHTML.appendChild(arrowRightHTML);
             }
 
             mapHTML.appendChild(footerHTML);
